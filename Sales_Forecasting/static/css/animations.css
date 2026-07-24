@@ -1,0 +1,173 @@
+/* Fade In */
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(30px);
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+    }
+
+}
+
+/* Slide Left */
+
+@keyframes slideLeft{
+
+    from{
+
+        opacity:0;
+
+        transform:translateX(-40px);
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateX(0);
+    }
+
+}
+
+/* Slide Right */
+
+@keyframes slideRight{
+
+    from{
+
+        opacity:0;
+
+        transform:translateX(40px);
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateX(0);
+    }
+
+}
+
+/* Zoom */
+
+@keyframes zoomIn{
+
+    from{
+
+        opacity:0;
+
+        transform:scale(.9);
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:scale(1);
+    }
+
+}
+
+/* Floating */
+
+@keyframes floating{
+
+    0%{
+
+        transform:translateY(0px);
+    }
+
+    50%{
+
+        transform:translateY(-8px);
+    }
+
+    100%{
+
+        transform:translateY(0px);
+    }
+
+}
+
+/* Glow */
+
+@keyframes glow{
+
+    0%{
+
+        box-shadow:0 0 0 rgba(59,130,246,.2);
+    }
+
+    50%{
+
+        box-shadow:0 0 25px rgba(59,130,246,.6);
+    }
+
+    100%{
+
+        box-shadow:0 0 0 rgba(59,130,246,.2);
+    }
+
+}
+
+.dashboard-card{
+
+    animation:fadeIn .8s ease;
+}
+
+.chart-card{
+
+    animation:zoomIn .8s ease;
+}
+
+.insight-card{
+
+    animation:slideRight .8s ease;
+}
+
+.sidebar{
+
+    animation:slideLeft .8s ease;
+}
+
+.logo i{
+
+    animation:floating 3s ease-in-out infinite;
+}
+
+.dashboard-card:hover{
+
+    animation:glow 1.5s infinite;
+}
+
+.chart-card{
+
+    transition:.35s;
+}
+
+.chart-card:hover{
+
+    transform:translateY(-8px) scale(1.02);
+}
+
+button,
+select{
+
+    transition:.3s;
+}
+
+button:hover,
+select:hover{
+
+    transform:translateY(-2px);
+}

@@ -1,0 +1,133 @@
+{% extends "base.html" %}
+
+{% block title %}
+Dashboard
+{% endblock %}
+
+{% block page_title %}
+Sales Forecasting Dashboard
+{% endblock %}
+
+{% block content %}
+
+<!-- FILTER SECTION -->
+
+<form method="GET">
+
+<div class="filter-container glass">
+
+<select name="year" onchange="this.form.submit()">
+<option value="">All Years</option>
+
+{% for y in filters.years %}
+<option value="{{ y }}" {% if selected_year==y|string %}selected{% endif %}>
+{{ y }}
+</option>
+{% endfor %}
+
+</select>
+
+<select name="region" onchange="this.form.submit()">
+<option value="">All Regions</option>
+
+{% for r in filters.regions %}
+<option value="{{ r }}" {% if selected_region==r %}selected{% endif %}>
+{{ r }}
+</option>
+{% endfor %}
+
+</select>
+
+<select name="category" onchange="this.form.submit()">
+<option value="">All Categories</option>
+
+{% for c in filters.categories %}
+<option value="{{ c }}" {% if selected_category==c %}selected{% endif %}>
+{{ c }}
+</option>
+{% endfor %}
+
+</select>
+
+<select name="segment" onchange="this.form.submit()">
+<option value="">All Segments</option>
+
+{% for s in filters.segments %}
+<option value="{{ s }}" {% if selected_segment==s %}selected{% endif %}>
+{{ s }}
+</option>
+{% endfor %}
+
+</select>
+
+</div>
+
+</form>
+
+<!-- KPI CARDS -->
+
+<div class="card-grid">
+
+<div class="dashboard-card sales-card">
+<div class="icon">💰</div>
+<h4>Total Sales</h4>
+<h2>₹{{ "{:,.2f}".format(total_sales) }}</h2>
+</div>
+
+<div class="dashboard-card order-card">
+<div class="icon">📦</div>
+<h4>Total Orders</h4>
+<h2>{{ total_orders }}</h2>
+</div>
+
+<div class="dashboard-card customer-card">
+<div class="icon">👥</div>
+<h4>Customers</h4>
+<h2>{{ total_customers }}</h2>
+</div>
+
+<div class="dashboard-card avg-card">
+<div class="icon">📊</div>
+<h4>Average Sales</h4>
+<h2>₹{{ "{:,.2f}".format(average_sales) }}</h2>
+</div>
+
+</div>
+
+<!-- AI INSIGHTS -->
+
+<div class="insight-card glass">
+
+<h3>🤖 AI Business Recommendation</h3>
+
+<p>{{ insights.recommendation }}</p>
+
+</div>
+
+<!-- CHARTS -->
+
+<div class="chart-grid">
+
+<div class="chart-card glass">
+{{ sales_graph|safe }}
+</div>
+
+<div class="chart-card glass">
+{{ category_graph|safe }}
+</div>
+
+<div class="chart-card glass">
+{{ region_graph|safe }}
+</div>
+
+<div class="chart-card glass">
+{{ product_graph|safe }}
+</div>
+
+<div class="chart-card full-width glass">
+{{ heatmap_graph|safe }}
+</div>
+
+</div>
+
+{% endblock %}

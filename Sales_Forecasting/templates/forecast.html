@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+
+{% block title %}
+Forecast
+{% endblock %}
+
+{% block page_title %}
+Sales Forecast
+{% endblock %}
+
+{% block content %}
+
+
+<div class="card-grid">
+
+
+    <div class="dashboard-card">
+        <h4>Next Month Forecast</h4>
+        <h2>
+        ₹{{ "{:,.2f}".format(summary.next_month_prediction) }}
+        </h2>
+    </div>
+
+
+    <div class="dashboard-card">
+        <h4>Highest Prediction</h4>
+        <h2>
+        ₹{{ "{:,.2f}".format(summary.highest_prediction) }}
+        </h2>
+    </div>
+
+
+    <div class="dashboard-card">
+        <h4>Lowest Prediction</h4>
+        <h2>
+        ₹{{ "{:,.2f}".format(summary.lowest_prediction) }}
+        </h2>
+    </div>
+
+
+    <div class="dashboard-card">
+        <h4>Average Prediction</h4>
+        <h2>
+        ₹{{ "{:,.2f}".format(summary.average_prediction) }}
+        </h2>
+    </div>
+
+
+
+    <!-- AI FUTURE YEAR FORECAST -->
+
+    <!-- AI FUTURE YEAR FORECAST -->
+
+<div class="dashboard-card glass">
+
+    <form method="GET">
+
+        <label>
+        🤖 Select Forecast Year
+        </label>
+
+        <select name="year" onchange="this.form.submit()">
+
+            <option value="2027" {% if selected_year==2027 %}selected{% endif %}>
+                2027
+            </option>
+
+            <option value="2028" {% if selected_year==2028 %}selected{% endif %}>
+                2028
+            </option>
+
+            <option value="2029" {% if selected_year==2029 %}selected{% endif %}>
+                2029
+            </option>
+
+            <option value="2030" {% if selected_year==2030 %}selected{% endif %}>
+                2030
+            </option>
+
+            <option value="2031" {% if selected_year==2031 %}selected{% endif %}>
+                2031
+            </option>
+
+
+        </select>
+
+
+        <h4 style="margin-top:20px;">
+        🤖 AI Forecast {{ selected_year }}
+        </h4>
+
+
+        <h2>
+        ₹{{ "{:,.0f}".format(future_sales) }}
+        </h2>
+
+
+        <p>
+        Expected Sales in Year {{ selected_year }}
+        </p>
+
+    </form>
+
+</div>
+
+
+</div>
+
+
+
+<div class="chart-card full-width glass">
+
+    {{ forecast_graph|safe }}
+
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,122 @@
+.sidebar{
+
+    position:fixed;
+
+    left:0;
+    top:0;
+
+    width:270px;
+
+    height:100vh;
+
+    background:#111827;
+
+    border-right:1px solid rgba(255,255,255,.08);
+
+    padding:30px 20px;
+
+    transition:.4s;
+
+    z-index:1000;
+}
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    margin-bottom:45px;
+}
+
+.logo i{
+
+    font-size:34px;
+
+    color:#3B82F6;
+}
+
+.logo h3{
+
+    font-size:24px;
+
+    font-weight:700;
+
+    color:white;
+}
+
+.menu{
+
+    list-style:none;
+
+    padding:0;
+}
+
+.menu li{
+
+    margin-bottom:14px;
+}
+
+.menu li a{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    padding:15px 18px;
+
+    border-radius:14px;
+
+    color:#CBD5E1;
+
+    font-weight:500;
+
+    transition:.35s;
+}
+
+.menu li a i{
+
+    font-size:20px;
+}
+
+.menu li a:hover{
+
+    background:linear-gradient(
+        90deg,
+        #2563EB,
+        #3B82F6
+    );
+
+    color:white;
+
+    transform:translateX(8px);
+
+    box-shadow:0 10px 25px rgba(59,130,246,.35);
+}
+
+.menu li a.active{
+
+    background:linear-gradient(
+        90deg,
+        #2563EB,
+        #3B82F6
+    );
+
+    color:white;
+}
+
+.sidebar::-webkit-scrollbar{
+
+    width:6px;
+}
+
+.sidebar::-webkit-scrollbar-thumb{
+
+    background:#3B82F6;
+
+    border-radius:20px;
+}
